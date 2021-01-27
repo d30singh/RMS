@@ -36,5 +36,7 @@ public class Rate {
 
 	  @UpdateTimestamp
 	  private LocalDateTime updatedAt;
+	  
+	  
 
 }
