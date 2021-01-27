@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @Builder
@@ -13,12 +14,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RateRequest {
 
+	@NonNull
+	private String rateId;
+
 	private String rateDescription;
 
+	@NonNull
 	private LocalDateTime rateEffectiveDate;
-
-	private LocalDateTime rateExpirationDate;
-
-	private int amount;
+	@NonNull
 	
+	private LocalDateTime rateExpirationDate;
+	
+	@NonNull
+	private Integer amount;
+
 }
