@@ -1,7 +1,5 @@
 package com.java.rms.dto;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,17 +11,16 @@ import lombok.NonNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RateRequest {
-
-	@NonNull
-	private String rateId;
+	
+	private Long rateId;
 
 	private String rateDescription;
 
 	@NonNull
-	private LocalDateTime rateEffectiveDate;
+	private String rateEffectiveDate;
 	@NonNull
 	
-	private LocalDateTime rateExpirationDate;
+	private String rateExpirationDate;
 	
 	@NonNull
 	private Integer amount;

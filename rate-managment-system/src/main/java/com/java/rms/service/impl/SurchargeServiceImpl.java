@@ -18,7 +18,7 @@ public class SurchargeServiceImpl implements SurchargeService {
 	private RestTemplate restTemplate;
 
 	@Override
-	public String fetchSurcharge() {
+	public String fetchSurcharge() throws SurchargeException{
 		String response = null;
 		try {
 			response = restTemplate.getForEntity("https://surcharge.free.beeceptor.com/surcharge", String.class)

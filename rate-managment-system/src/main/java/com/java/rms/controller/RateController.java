@@ -32,7 +32,7 @@ public class RateController {
 	}
 
 	@PutMapping
-	public void updte(@RequestBody RateRequest rateRequest) {
+	public void update(@RequestBody RateRequest rateRequest) {
 		rateService.update(rateRequest);
 	}
 

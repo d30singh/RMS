@@ -1,5 +1,6 @@
 package com.java.rms.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -16,11 +17,11 @@ public class RateResponse {
 	
 	private String rateDescription;
 
-	private LocalDateTime rateEffectiveDate;
+	private LocalDate rateEffectiveDate;
 
-	private LocalDateTime rateExpirationDate;
+	private LocalDate rateExpirationDate;
 
 	private int amount;
 
-	private SurchargeResponse surchargeResponse;
+	private String surchargeResponse;
 }

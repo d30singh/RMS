@@ -1,5 +1,6 @@
 package com.java.rms.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -25,17 +26,17 @@ public class Rate {
 	  
 	  private String rateDescription;
 	  
-	  private LocalDateTime rateEffectiveDate;
+	  private LocalDate rateEffectiveDate;
 	  
-	  private LocalDateTime rateExpirationDate;
+	  private LocalDate rateExpirationDate;
 	  
 	  private int amount;
 	  
 	  @CreationTimestamp
-	  private LocalDateTime createdAt;
+	  private LocalDate createdAt;
 
 	  @UpdateTimestamp
-	  private LocalDateTime updatedAt;
+	  private LocalDate updatedAt;
 	  
 	  
 
