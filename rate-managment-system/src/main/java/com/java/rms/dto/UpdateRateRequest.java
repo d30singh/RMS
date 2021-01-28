@@ -11,17 +11,19 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RateRequest {
-	
+public class UpdateRateRequest {
+	@NotNull
+	private Long rateId;
+
+
 	private String rateDescription;
 
 	@NotNull
 	private String rateEffectiveDate;
-	
+
 	@NotNull
 	private String rateExpirationDate;
-	
+
 	@NotNull
 	private Integer amount;
-
 }

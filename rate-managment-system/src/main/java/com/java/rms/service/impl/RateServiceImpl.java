@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.java.rms.dto.RateRequest;
 import com.java.rms.dto.RateResponse;
+import com.java.rms.dto.UpdateRateRequest;
 import com.java.rms.entity.Rate;
 import com.java.rms.exception.SurchargeException;
 import com.java.rms.repo.RateRepository;
@@ -60,7 +61,7 @@ public class RateServiceImpl implements RateService {
 	}
 
 	@Override
-	public void update(RateRequest rateRequest) {
+	public void update(UpdateRateRequest rateRequest) {
 		Rate rate = rateRepository.findById(rateRequest.getRateId())
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
 						"Internal server error. Please contact admin"));

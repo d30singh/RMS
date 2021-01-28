@@ -1,5 +1,8 @@
 package com.java.rms.controller;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.java.rms.dto.RateRequest;
 import com.java.rms.dto.RateResponse;
+import com.java.rms.dto.UpdateRateRequest;
 import com.java.rms.service.RateService;
-
-import lombok.NonNull;
 
 @RestController
 public class RateController {
@@ -22,22 +24,22 @@ public class RateController {
 	private RateService rateService;
 
 	@GetMapping("/{rateId}")
-	public RateResponse get(@PathVariable @NonNull Long rateId) {
+	public RateResponse get(@PathVariable @NotNull Long rateId) {
 		return rateService.get(rateId);
 	}
 
 	@PostMapping
-	public void save(@RequestBody RateRequest rateRequest) {
+	public void save(@RequestBody @Valid RateRequest rateRequest) {
 		rateService.save(rateRequest);
 	}
 
 	@PutMapping
-	public void update(@RequestBody RateRequest rateRequest) {
+	public void update(@RequestBody @Valid UpdateRateRequest rateRequest) {
 		rateService.update(rateRequest);
 	}
 
 	@DeleteMapping("/{rateId}")
-	public void delete(@PathVariable @NonNull Long rateId) {
+	public void delete(@PathVariable @NotNull Long rateId) {
 		rateService.delete(rateId);
 	}
 }
