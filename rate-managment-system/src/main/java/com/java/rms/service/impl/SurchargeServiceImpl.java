@@ -25,22 +25,21 @@ public class SurchargeServiceImpl implements SurchargeService {
 			@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000"),
 			@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
 
-			})
+	})
 	@Override
-	public String fetchSurcharge()throws SurchargeException {
+	public String fetchSurcharge() throws SurchargeException {
 		String response = null;
 		try {
-			response = restTemplate.getForEntity("https://surcharge.free.beeceptor.com/surcharge", String.class)
-			.getBody();
-			} catch (HttpClientErrorException httpClientExc) {
+			response = restTemplate.getForObject("https://surcharge.free.beeceptor.com/surcharge", String.class);
+		} catch (HttpClientErrorException httpClientExc) {
 			log.error(String.format("Error with status code: %s", httpClientExc.getRawStatusCode()), httpClientExc);
 			throw new SurchargeException("Error while fetching the surcharge detail");
-			}
-			return response;
+		}
+		return response;
 	}
-	
+
 	public String fallbackfetchSurcharge() {
 		log.info("fallback method is called");
 		return "Surhage Api is down.Try again later";
-		}
+	}
 }
